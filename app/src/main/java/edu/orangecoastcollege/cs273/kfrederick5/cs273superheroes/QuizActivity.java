@@ -1,6 +1,9 @@
 package edu.orangecoastcollege.cs273.kfrederick5.cs273superheroes;
 
+import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -11,6 +14,11 @@ import android.view.MenuItem;
 
 public class QuizActivity extends AppCompatActivity {
 
+    public static final String QUESTIONS = "pref_questions";
+
+    private boolean phoneDevice = true;
+    private boolean questionsChanged = true;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,14 +26,34 @@ public class QuizActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+        PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
+
+        PreferenceManager.getDefaultSharedPreferences(this).
+                registerOnSharedPreferenceChangeListener(preferencesChangeListener);
+
+        int screenSize = getResources().getConfiguration().screenLayout &
+                Configuration.SCREENLAYOUT_SIZE_MASK;
+
+        if(screenSize == Configuration.SCREENLAYOUT_SIZE_LARGE ||
+                screenSize == Configuration.SCREENLAYOUT_SIZE_XLARGE)
+            phoneDevice = false;
+
+        if(phoneDevice)
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+    }
+
+    @Override
+    protected void onStart(){
+        super.onStart();
+
+        if(questionsChanged){
+            QuizActivityFragment quizFragment = (QuizActivityFragment)
+                    getFragmentManager().findFragmentById(R.id.quizFragment);
+            quizFragment.updateQuizType(
+                    PreferenceManager.getDefaultSharedPreferences(this));
+            quizFragment.resetQuiz();
+            questionsChanged = false;
+        }
     }
 
     @Override

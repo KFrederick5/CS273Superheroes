@@ -1,5 +1,18 @@
 <resources>
     <string name="app_name">CS273 Superheroes</string>
     <string name="action_settings">Settings</string>
-    <string name="title_activity_settings">SettingsActivity</string>
+    <string name="quiz_type">Quiz Type</string>
+    <string name="quiz_type_description">Quiz type to include in the quiz</string>
+    <string name="guess_hero">Guess the Hero</string>
+    <string name="results">%1$d guesses, %2$.02f%% correct</string>
+    <string name="correct_answer">Correct!</string>
+    <string name="incorrect_answer">Incorrect!</string>
+    <string name="default_quiz_message">One type must be selected. Setting Name as the default quiz.</string>
+    <string name="restarting_quiz">Quiz will restart with your new settings</string>
+    <string name="question">Question %1$d of %2$d</string>
+    <string name="reset_quiz">Reset Quiz</string>
+    <string name="image_description">Image of the current Superhero</string>
+    <string name="default_quiz">Name</string>
+    <string name="title_activity_settings">Settings</string>
+    <string name="hero">A Superhero</string>
 </resources>

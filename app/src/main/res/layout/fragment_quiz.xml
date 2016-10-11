@@ -19,13 +19,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textView"
-        android:gravity="center_horizontal"/>
+        android:gravity="center_horizontal"
+        tools:text="@string/question"/>
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/ic_superhero"
-        android:id="@+id/imageView"
+        android:id="@+id/heroImageView"
         android:adjustViewBounds="true"
         android:layout_weight="2"
         android:scaleType="fitCenter"/>
@@ -48,6 +49,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/button2"
             android:layout_weight="1"/>
+
     </LinearLayout>
 
     <LinearLayout
@@ -60,7 +62,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:id="@+id/@+id/button3"/>
+            android:id="@+id/button3"/>
 
         <Button
             android:text="Button"
@@ -68,6 +70,14 @@
             android:layout_height="wrap_content"
             android:id="@+id/@+id/button4"
             android:layout_weight="1"/>
+
     </LinearLayout>
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        tools:text="@string/incorrect_answer"/>
 
 </LinearLayout>
