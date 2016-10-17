@@ -2,9 +2,22 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
     <ListPreference
+        android:defaultValue="0"
+        android:entries="@array/questions_array_settings"
+        android:entryValues="@array/questions_array"
+        android:key="pref_questions"
         android:title="@string/default_quiz"
         android:summary="@string/default_quiz_message"
         android:persistent="true"
         />
+
+    <ListPreference
+        android:entries="@array/choices_array"
+        android:entryValues="@array/choices_array"
+        android:key="pref_numChoices"
+        android:title="@string/number_of_choices"
+        android:summary="@string/number_of_choices_description"
+        android:persistent="true"
+        android:defaultValue="4" />
 
 </PreferenceScreen>

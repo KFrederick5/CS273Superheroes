@@ -19,8 +19,8 @@ public class JSONLoader {
 
     public static ArrayList<Superhero> loadJSONFromAsset(Context context) throws IOException{
         ArrayList<Superhero> allSuperheroes = new ArrayList<>();
-        String json = null;
-        InputStream is = context.getAssets().open("cs273superheros.json");
+        String json;
+        InputStream is = context.getAssets().open("cs273superheroes.json");
         int size = is.available();
         byte[] buffer = new byte[size];
         is.read(buffer);
@@ -30,16 +30,19 @@ public class JSONLoader {
         try {
             JSONObject jsonRootObject = new JSONObject(json);
             JSONArray allSuperheroesJSON = jsonRootObject.getJSONArray("CS273Superheroes");
-            int numberOfHeros = allSuperheroesJSON.length();
+            int numberOfHeroes = allSuperheroesJSON.length();
 
-            for (int i = 0; i < numberOfHeros; i++) {
+            for (int i = 0; i < numberOfHeroes; i++) {
                 JSONObject superheroJSON = allSuperheroesJSON.getJSONObject(i);
+
                 Superhero hero = new Superhero();
-                hero.setUsername(superheroJSON.get("Username"));
-                hero.setName(superheroJSON.get("Name"));
-                hero.setSuperpower(superheroJSON.get("Superpower"));
-                hero.setOneThing(superheroJSON.get("OneThing"));
-                hero.setImageName(superheroJSON.get("ImageName"));
+
+
+                hero.setUsername(superheroJSON.getString("Username"));
+                hero.setName(superheroJSON.getString("Name"));
+                hero.setSuperpower(superheroJSON.getString("Superpower"));
+                hero.setOneThing(superheroJSON.getString("OneThing"));
+                hero.setImageName(superheroJSON.getString("ImageName"));
 
                 allSuperheroes.add(hero);
             }

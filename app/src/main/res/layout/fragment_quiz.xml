@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/content_quiz"
+    android:id="@+id/quizLinearLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -18,58 +18,123 @@
         android:text="TextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView"
+        android:id="@+id/questionTextView"
         android:gravity="center_horizontal"
         tools:text="@string/question"/>
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ic_superhero"
+        android:layout_height="0dp"
         android:id="@+id/heroImageView"
         android:adjustViewBounds="true"
         android:layout_weight="2"
-        android:scaleType="fitCenter"/>
+        android:scaleType="fitCenter"
+        android:contentDescription="@string/hero"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/guess_hero"
+        android:id="@+id/categoryTextView"
+        android:layout_gravity="center_horizontal"
+        android:textAlignment="center"/>
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:id="@+id/row1LinearLayout">
 
         <Button
             android:text="Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/button"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            style="@style/Widget.AppCompat.Button.Colored"
+            />
 
         <Button
             android:text="Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/button2"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            style="@style/Widget.AppCompat.Button.Colored"/>
 
     </LinearLayout>
 
     <LinearLayout
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/row2LinearLayout">
+
+    <Button
+        android:text="Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:id="@+id/button3"
+        style="@style/Widget.AppCompat.Button.Colored"/>
+
+    <Button
+        android:text="Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button4"
+        android:layout_weight="1"
+        style="@style/Widget.AppCompat.Button.Colored"/>
+
+</LinearLayout>
+
+    <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:id="@+id/row3LinearLayout">
 
         <Button
             android:text="Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:id="@+id/button3"/>
+            android:id="@+id/button5"
+            style="@style/Widget.AppCompat.Button.Colored"/>
 
         <Button
             android:text="Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/@+id/button4"
-            android:layout_weight="1"/>
+            android:id="@+id/button6"
+            android:layout_weight="1"
+            style="@style/Widget.AppCompat.Button.Colored"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/row4LinearLayout">
+
+        <Button
+            android:text="Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:id="@+id/button7"
+            style="@style/Widget.AppCompat.Button.Colored"/>
+
+        <Button
+            android:text="Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/button8"
+            android:layout_weight="1"
+            style="@style/Widget.AppCompat.Button.Colored"/>
 
     </LinearLayout>
 
@@ -77,7 +142,9 @@
         android:text="TextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        tools:text="@string/incorrect_answer"/>
+        android:id="@+id/answerTextView"
+        tools:text="@string/incorrect_answer"
+        android:textAlignment="center"
+        android:elevation="0dp"/>
 
 </LinearLayout>
